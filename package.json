@@ -1,5 +1,5 @@
 {
-  "name": "hyper-statusline",
+  "name": "hyper-lrlld-statusline",
   "version": "1.7.6",
   "description": "Status Line Plugin for Hyper",
   "main": "index.js",
