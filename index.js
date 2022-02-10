@@ -332,21 +332,22 @@ exports.middleware = (store) => (next) => (action) => {
     switch (action.type) {
         case 'SESSION_SET_XTERM_TITLE':
             pid = uids[action.uid].pid;
-            break;
-
-        case 'SESSION_ADD':
-            pid = action.pid;
             setCwd(pid);
             break;
 
-        case 'SESSION_ADD_DATA':
-            const { data } = action;
-            const enterKey = data.indexOf('\n') > 0;
+        // case 'SESSION_ADD':
+        //     pid = action.pid;
+        //     setCwd(pid);
+        //     break;
 
-            if (enterKey) {
-                setCwd(pid, action);
-            }
-            break;
+        // case 'SESSION_ADD_DATA':
+        //     const { data } = action;
+        //     const enterKey = data.indexOf('\n') > 0;
+
+        //     if (enterKey) {
+        //         setCwd(pid, action);
+        //     }
+        //     break;
 
         case 'SESSION_SET_ACTIVE':
             pid = uids[action.uid].pid;
