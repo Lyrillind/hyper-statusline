@@ -9,7 +9,7 @@ exports.decorateConfig = (config) => {
     const colorBackground = color(config.backgroundColor || '#000');
     const colors = {
         foreground: colorForeground.string(),
-        background: colorBackground.lighten(0.3).string()
+        background: colorBackground.lighten(0.3).string(),
     };
 
     const configColors = Object.assign({
@@ -33,6 +33,8 @@ exports.decorateConfig = (config) => {
 
     const hyperStatusLine = Object.assign({
         footerTransparent: true,
+        footerBackgroundOpacity: 0.6,
+        footerTextOpacity: 0.6,
         dirtyColor: configColors.lightYellow,
         aheadColor: configColors.blue
     }, config.hyperStatusLine);
@@ -53,8 +55,8 @@ exports.decorateConfig = (config) => {
                 z-index: 100;
                 font-size: 12px;
                 height: 30px;
-                background-color: ${colors.background};
-                opacity: ${hyperStatusLine.footerTransparent ? '0.5' : '1'};
+                background-color: ${color(colors.background).fade(hyperStatusLine.footerTransparent ? hyperStatusLine.footerBackgroundOpacity : 1).string()};
+                opacity: ${hyperStatusLine.footerTransparent ? hyperStatusLine.footerTextOpacity : 1};
                 cursor: default;
                 -webkit-user-select: none;
                 transition: opacity 250ms ease;
