@@ -53,6 +53,8 @@ exports.decorateConfig = (config) => {
                 left: 0;
                 right: 0;
                 z-index: 100;
+                font-family: ${config.fontFamily};
+                font-weight: 500;
                 font-size: 12px;
                 height: 30px;
                 background-color: ${color(colors.background).fade(hyperStatusLine.footerTransparent ? hyperStatusLine.footerBackgroundOpacity : 1).string()};
